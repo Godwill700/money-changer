@@ -1,0 +1,238 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Work Sans", sans-serif;
+  color: #8cc5cd;
+  font-size: 1.1rem;
+}
+
+/*************
+ * VARIABLES *
+ *************/
+
+// $app-bg:;
+$main-bg: #020024;
+$logo-color: #50777c;
+$main-text-color1: #8cc5cd;
+$logo-font: 1.5em;
+$main-font: 1.5em;
+
+/**********
+ * MIXINS *
+ **********/
+@mixin container {
+  width: 90%;
+  margin: 0rem auto;
+  margin-top: 2rem;
+}
+
+@mixin inputBottom {
+  input {
+    width: 70%;
+    background-color: inherit;
+    outline: none;
+    border: none;
+    border-bottom: 0.1rem solid $main-text-color1;
+    display: block;
+    font-size: 1.2em;
+    padding: 0.5em;
+  }
+}
+@mixin flex1 {
+  display: flex;
+  justify-content: space-between;
+}
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+}
+@mixin label1 {
+  label {
+    display: block;
+    margin-bottom: 1rem;
+  }
+}
+/*===================+
+ |APP CONTAINER STYLE|
+ +===================*/
+
+.app-container {
+  // background-color: $main-bg;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    216deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 36, 44, 1) 46%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  height: 100vh;
+
+  overflow-y: scroll;
+}
+
+.main {
+  background-color: $main-bg;
+  border-radius: 10px;
+  opacity: 0.8;
+  width: 50%;
+  margin: 0px auto;
+  position: relative;
+  top: 5rem;
+
+  /********** Desktop**********/
+  @media (min-width: 767px) and (max-width: 991px) {
+    width: 80%;
+  }
+
+  /*******Tablet devices********/
+  @media (min-width: 575px) and (max-width: 767px) {
+    width: 90%;
+  }
+  /********** Mobile phones**********/
+  @media (max-width: 575px) {
+    width: 95%;
+    top: 2rem;
+  }
+}
+
+.logo {
+  font-size: $logo-font;
+  padding: 1rem 0;
+  margin-left: 1rem;
+}
+
+.intro {
+  font-weight: 300;
+  font-style: italic;
+  @include container();
+}
+
+.rate-charge {
+  @include flex1();
+  @include container();
+  @include inputBottom();
+  @include label1();
+
+  .main-charges {
+    width: 25%;
+  }
+  .range-btn {
+    display: flex;
+    justify-content: space-around;
+    background-color: #8cc5cd;
+    color: $main-bg;
+
+    .increase,
+    .decrease {
+      @include flexCenter();
+      width: 40%;
+      padding: 0.3rem;
+      // color: inherit;
+      background-color: #020024;
+    }
+
+    .percent {
+      display: flex;
+      justify-content: center;
+      color: inherit;
+      width: 100%;
+      margin: auto auto;
+      // border-right: 2px solid $main-bg;
+      // border-left: 2px solid $main-bg;
+    }
+  }
+
+  /********** Mobile phones**********/
+  // @media (max-width: 575px) {
+  //   .rate {
+  //     width: 60%;
+  //     input {
+  //       width: 90%;
+  //     }
+  //   }
+  // }
+}
+
+.product-price {
+  @include container();
+  @include inputBottom();
+  @include flex1();
+  @include label1();
+
+  .currency {
+    font-size: 0.7rem;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .in-usd {
+    width: 30%;
+    opacity: 0.9;
+    h1 {
+      color: red;
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      opacity: 0.6;
+      .currency {
+        font-size: 0.6rem;
+        font-style: italic;
+        color: green;
+      }
+    }
+    span {
+      font-size: 1.5rem;
+      color: green;
+    }
+  }
+}
+
+.result {
+  @include flex1();
+  @include label1();
+  background-color: #8cc5cd;
+  display: block;
+  color: #020024;
+  margin-top: 2rem;
+  overflow: auto;
+  border-radius: 0rem 0rem 1.2rem 1.22rem;
+
+  .est-usd-price {
+    @include container();
+    @include label1();
+    @include inputBottom();
+    color: $main-bg;
+    label {
+      color: $main-bg;
+      margin-bottom: -1rem;
+    }
+    input {
+      border-bottom: 0.1rem solid $main-bg;
+      color: $main-bg;
+      padding-top: 1.5rem;
+    }
+  }
+
+  .total-saving {
+    padding-bottom: 2rem;
+    margin: 2.5rem auto 0rem;
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+
+    h1 {
+      color: $main-bg;
+      font-weight: 600;
+      font-style: italic;
+      font-size: 1.1rem;
+      padding-top: 0.5rem;
+      margin-right: 2rem;
+    }
+
+    p {
+      color: $main-bg;
+      font-weight: 700;
+      font-size: 2.5rem;
+    }
+  }
+}

@@ -1,38 +1,180 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Work Sans", sans-serif;
+  color: #8cc5cd;
+  font-size: 1.05em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*************
+ * VARIABLES *
+ *************/
+/**********
+ * MIXINS *
+ **********/
+/*===================+
+ |APP CONTAINER STYLE|
+ +===================*/
+.app-container {
+  background: #020024;
+  background: linear-gradient(216deg, #020024 0%, #09242c 46%, #00d4ff 100%);
+  height: 100vh;
+  overflow-y: scroll;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app-container svg {
+  position: absolute;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main {
+  background-color: #020024;
+  border-radius: 10px;
+  opacity: 0.8;
+  width: 50%;
+  margin: 0px auto;
+  position: relative;
+  top: 10rem;
+}
+
+.logo {
+  font-size: 1.5em;
+  padding: 1rem 0;
+  margin-left: 1rem;
+}
+
+.intro {
+  font-weight: 300;
+  font-style: italic;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+.rate-charge {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 3rem;
 }
 
-.App-link {
-  color: #61dafb;
+.rate-charge input {
+  background-color: inherit;
+  outline: none;
+  border: none;
+  border-bottom: 0.1rem solid #8cc5cd;
+  display: block;
+  font-size: 1.2em;
+  padding: 0.5em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.rate-charge label {
+  display: block;
+  margin-bottom: 1rem;
 }
+
+.rate-charge .charge input {
+  all: revert;
+}
+
+.product-price {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.product-price input {
+  background-color: inherit;
+  outline: none;
+  border: none;
+  border-bottom: 0.1rem solid #8cc5cd;
+  display: block;
+  font-size: 1.2em;
+  padding: 0.5em;
+}
+
+.product-price label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.product-price .in-usd h1 {
+  color: red;
+  font-size: 1.5em;
+  margin-top: 2rem;
+}
+
+.result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #8cc5cd;
+  display: block;
+  color: #020024;
+  margin-top: 2rem;
+  overflow: auto;
+}
+
+.result label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.result .est-usd-price {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+.result .est-usd-price label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.result .est-usd-price input {
+  background-color: inherit;
+  outline: none;
+  border: none;
+  border-bottom: 0.1rem solid #8cc5cd;
+  display: block;
+  font-size: 1.2em;
+  padding: 0.5em;
+}
+
+.result .est-usd-price label {
+  color: #020024;
+  margin-bottom: -1rem;
+}
+
+.result .est-usd-price input {
+  border-bottom: 0.1rem solid #020024;
+}
+
+.result .total-saving {
+  padding-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.result .total-saving p {
+  color: #020024;
+  font-size: 3em;
+  font-weight: 700;
+  width: 70%;
+  margin: 0px auto;
+}
+/*# sourceMappingURL=App.css.map */
