@@ -15,7 +15,7 @@
 $main-bg: #020024;
 $logo-color: #50777c;
 $main-text-color1: #8cc5cd;
-$logo-font: 1.5em;
+$logo-font: 2.05rem;
 $main-font: 1.5em;
 
 /**********
@@ -97,9 +97,13 @@ $main-font: 1.5em;
 }
 
 .logo {
-  font-size: $logo-font;
-  padding: 1rem 0;
-  margin-left: 1rem;
+  @include container();
+
+  h1 {
+    font-size: $logo-font;
+    padding-top: 2rem;
+    font-weight: 700;
+  }
 }
 
 .intro {
@@ -115,7 +119,7 @@ $main-font: 1.5em;
   @include label1();
 
   .main-charges {
-    width: 25%;
+    width: 30%;
   }
   .range-btn {
     display: flex;
@@ -126,10 +130,10 @@ $main-font: 1.5em;
     .increase,
     .decrease {
       @include flexCenter();
-      width: 40%;
+      width: 70%;
       padding: 0.3rem;
-      // color: inherit;
       background-color: #020024;
+      border: 0.02rem solid $main-text-color1;
     }
 
     .percent {
