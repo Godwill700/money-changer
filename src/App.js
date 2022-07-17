@@ -6,9 +6,10 @@ function App() {
   const [blackRate, setBlackRate] = useState(0);
   const [chargeRate, setChargeRate] = useState(6);
   const [charges, setCharges] = useState(0);
-  const [output, setOutput] = useState(30);
+  const [savingOrLoss, setSavingOrLoss] = useState(30);
   const [zwPlusCharge, setZwPlusCharge] = useState(0);
   const [ratedUsdPrice, setRatedUsdPrice] = useState(0);
+  const [saving, setSaving] = useState("Saving");
 
   /*********************************
    * SETTING THE BLACK MARKET RATE *
@@ -32,10 +33,22 @@ function App() {
       setCharges((e.target.value * chargeRate) / 10);
       setZwPlusCharge(parseInt(e.target.value) + parseInt(charges));
       // setZwPlusCharge(e.target.value + charges);
-      setRatedUsdPrice(zwPlusCharge / blackRate);
+      setRatedUsdPrice((zwPlusCharge / blackRate).toFixed(2));
       console.log(zwPlusCharge);
       console.log(charges);
       console.log(blackRate);
+    }
+  };
+
+  /****************************
+   * CALCULATE SAVING OR LOSS *
+   ****************************/
+  const calcSaving = (e) => {
+    if (e.target.value > 0) {
+      setSavingOrLoss((ratedUsdPrice - e.target.value).toFixed(2));
+    }
+    if (savingOrLoss > 0) {
+      setSaving("Loss");
     }
   };
 
@@ -104,11 +117,11 @@ function App() {
         <section className="result">
           <article className="est-usd-price">
             <label htmlFor="est-usd">What is the est USD price</label>
-            <input type="number" id="esd-usd" />
+            <input type="number" id="est-usd" onChange={calcSaving} />
           </article>
           <article className="total-saving">
-            <h1>Total Saving/Losses</h1>
-            <p>{output}</p>
+            <h1>Total {saving}</h1>
+            <p>{savingOrLoss}</p>
           </article>
         </section>
       </div>
