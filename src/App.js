@@ -6,9 +6,10 @@ function App() {
   const [blackRate, setBlackRate] = useState(0);
   const [chargeRate, setChargeRate] = useState(6);
   const [charges, setCharges] = useState(0);
-  const [savingOrLoss, setSavingOrLoss] = useState(30);
+  const [savingOrLoss, setSavingOrLoss] = useState((0).toFixed(2));
+  const [zwPrice, setZwPrice] = useState(0);
   const [zwPlusCharge, setZwPlusCharge] = useState(0);
-  const [ratedUsdPrice, setRatedUsdPrice] = useState(0);
+  const [ratedUsdPrice, setRatedUsdPrice] = useState((0).toFixed(2));
   const [saving, setSaving] = useState("Saving");
 
   /*********************************
@@ -29,22 +30,21 @@ function App() {
   // }, []);
 
   const calcUsdEquiv = (e) => {
-    if (e.target.value > 0) {
-      setCharges((e.target.value * chargeRate) / 10);
-      setZwPlusCharge(parseInt(e.target.value) + parseInt(charges));
-      // setZwPlusCharge(e.target.value + charges);
-      setRatedUsdPrice((zwPlusCharge / blackRate).toFixed(2));
-      console.log(zwPlusCharge);
-      console.log(charges);
-      console.log(blackRate);
-    }
+    setZwPrice(parseFloat(e.target.value));
+    setCharges(zwPrice * chargeRate);
+    setZwPlusCharge(zwPrice + charges);
+    setRatedUsdPrice((zwPlusCharge / blackRate).toFixed(2));
+    console.log(zwPlusCharge);
+    console.log(charges);
+    console.log(zwPrice);
+    console.log(e.target.value);
   };
 
   /****************************
    * CALCULATE SAVING OR LOSS *
    ****************************/
   const calcSaving = (e) => {
-    if (e.target.value > 0) {
+    if (e.target.value > "0") {
       setSavingOrLoss((ratedUsdPrice - e.target.value).toFixed(2));
     }
     if (savingOrLoss > 0) {
@@ -60,9 +60,9 @@ function App() {
         </header>
         <section className="intro">
           <p>
-            Forget about doing crazy math in your head about which currency to
-            use to make a purchase as we level the playing field with Money
-            Changer
+            Take a break from doing crazy mental calculations on which currency
+            to use to make your next purchase. Relax, let the Money Changer
+            handle that for you.
           </p>
         </section>
         <section className="rate-charge">
@@ -109,8 +109,8 @@ function App() {
           <article className="in-usd">
             <label htmlFor="in-usd">Equiv price</label>
             <h1>
-              <span className="currency">(USD)$</span>
-              <span className="equiv-price">{ratedUsdPrice}</span>
+              <span className="currency">(USD)</span>
+              <span className="equiv-price">${ratedUsdPrice}</span>
             </h1>
           </article>
         </section>
@@ -121,7 +121,7 @@ function App() {
           </article>
           <article className="total-saving">
             <h1>Total {saving}</h1>
-            <p>{savingOrLoss}</p>
+            <p>${savingOrLoss}</p>
           </article>
         </section>
       </div>

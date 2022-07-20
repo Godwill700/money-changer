@@ -146,16 +146,6 @@ $main-font: 1.5em;
       // border-left: 2px solid $main-bg;
     }
   }
-
-  /********** Mobile phones**********/
-  // @media (max-width: 575px) {
-  //   .rate {
-  //     width: 60%;
-  //     input {
-  //       width: 90%;
-  //     }
-  //   }
-  // }
 }
 
 .product-price {
@@ -171,7 +161,7 @@ $main-font: 1.5em;
   }
 
   .in-usd {
-    width: 30%;
+    width: 40%;
     opacity: 0.9;
     h1 {
       color: red;
